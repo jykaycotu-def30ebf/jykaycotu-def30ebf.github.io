@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>免费动漫官网-在线追番_新番导视_动漫推荐与资源导航</title>
+  <meta name="description" content="免费动漫官网提供2026年新番导视、在线追番列表、动漫深度解析与推荐。涵盖日漫、国创、经典番剧，包含类型分类、更新日历、用户评论与常见问题，帮你轻松找到想看的动漫。">
+  <meta name="keywords" content="免费动漫官网,在线追番,新番导视,动漫推荐,日漫国创">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236c5ce7'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'>漫</text></svg>">
+  <style>
+    /* ========== 全局变量与重置 ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --anime-primary: #6c5ce7;
+      --anime-primary-light: #a29bfe;
+      --anime-secondary: #fd79a8;
+      --anime-bg: #f8f9fd;
+      --anime-card-bg: #ffffff;
+      --anime-text: #2d3436;
+      --anime-text-light: #636e72;
+      --anime-border: #e9ecf0;
+      --anime-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      --anime-shadow-hover: 0 16px 30px rgba(108, 92, 231, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+      --anime-radius: 20px;
+      --anime-radius-sm: 12px;
+      --anime-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --anime-max-width: 1200px;
+    }
+
+    body {
+      background: var(--anime-bg);
+      font-family: var(--anime-font);
+      color: var(--anime-text);
+      line-height: 1.6;
+      padding: 0 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .anime-container {
+      max-width: var(--anime-max-width);
+      margin: 0 auto;
+    }
+
+    /* ========== 通用卡片 ========== */
+    .anime-card {
+      background: var(--anime-card-bg);
+      border-radius: var(--anime-radius);
+      box-shadow: var(--anime-shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .anime-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--anime-shadow-hover);
+    }
+
+    /* ========== 导航 ========== */
+    .anime-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--anime-border);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .anime-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
+      color: var(--anime-primary);
+    }
+
+    .anime-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--anime-primary), var(--anime-secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+    }
+
+    .anime-nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--anime-text-light);
+    }
+
+    .anime-nav-links a {
+      transition: color 0.2s;
+    }
+
+    .anime-nav-links a:hover {
+      color: var(--anime-primary);
+    }
+
+    /* ========== Banner ========== */
+    .anime-banner {
+      background: linear-gradient(145deg, #f0edff 0%, #fce4f0 100%);
+      border-radius: 36px;
+      padding: 40px 32px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: 0 20px 40px rgba(108, 92, 231, 0.06);
+    }
+
+    .anime-banner-content {
+      flex: 1 1 360px;
+    }
+
+    .anime-banner-content h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      color: #1e1b2e;
+    }
+
+    .anime-banner-content h1 span {
+      color: var(--anime-primary);
+      background: linear-gradient(135deg, var(--anime-primary), var(--anime-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .anime-banner-desc {
+      font-size: 1.05rem;
+      color: var(--anime-text-light);
+      max-width: 550px;
+      margin-bottom: 24px;
+    }
+
+    .anime-search-box {
+      display: flex;
+      background: white;
+      border-radius: 60px;
+      padding: 6px 6px 6px 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      max-width: 480px;
+      border: 1px solid rgba(108, 92, 231, 0.1);
+    }
+
+    .anime-search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      background: transparent;
+      font-family: var(--anime-font);
+      min-width: 0;
+    }
+
+    .anime-search-box button {
+      background: var(--anime-primary);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: var(--anime-font);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .anime-search-box button:hover {
+      background: #5b4bcf;
+    }
+
+    .anime-banner-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .anime-pill {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2d3436;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      transition: all 0.2s;
+    }
+
+    .anime-pill:hover {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      color: var(--anime-primary);
+    }
+
+    .anime-banner-visual {
+      flex: 0 0 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .anime-cover-collage {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #a29bfe, #fd79a8);
+      border-radius: 30px;
+      box-shadow: 0 20px 30px rgba(108, 92, 231, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      font-weight: 700;
+      transform: rotate(4deg);
+      transition: transform 0.3s;
+    }
+
+    .anime-cover-collage:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    /* ========== 通用 Section ========== */
+    .anime-section {
+      margin-bottom: 48px;
+    }
+
+    .anime-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .anime-section-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #1e1b2e;
+    }
+
+    .anime-section-link {
+      color: var(--anime-primary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .anime-section-link:hover {
+      opacity: 0.7;
+    }
+
+    /* ========== 推荐卡片网格 ========== */
+    .anime-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .anime-item-card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .anime-item-card .anime-cover {
+      height: 140px;
+      border-radius: var(--anime-radius-sm);
+      background: linear-gradient(135deg, #dfe6fd, #fde2f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #6c5ce7;
+      margin-bottom: 4px;
+    }
+
+    .anime-item-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .anime-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .anime-tag {
+      background: #f1f3f8;
+      border-radius: 30px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--anime-text-light);
+    }
+
+    .anime-tag.hot {
+      background: #fff0f3;
+      color: #e84393;
+    }
+
+    .anime-item-desc {
+      font-size: 0.92rem;
+      color: var(--anime-text-light);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .anime-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #b2bec3;
+      border-top: 1px solid var(--anime-border);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    /* ========== 更新列表 ========== */
+    .anime-update-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .anime-update-item {
+      padding: 16px 20px;
+      border-radius: var(--anime-radius-sm);
+      background: white;
+      box-shadow: var(--anime-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .anime-update-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--anime-shadow-hover);
+    }
+
+    .anime-update-item .update-title {
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .anime-update-item .update-time {
+      font-size: 0.8rem;
+      color: #b2bec3;
+    }
+
+    .anime-update-item .update-note {
+      font-size: 0.85rem;
+      color: var(--anime-text-light);
+      background: #f8f9fd;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    /* ========== 分类入口 ========== */
+    .anime-cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .anime-cat-btn {
+      background: white;
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: var(--anime-shadow);
+      transition: all 0.2s;
+      color: var(--anime-text);
+      flex: 0 0 auto;
+    }
+
+    .anime-cat-btn:hover {
+      background: var(--anime-primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* ========== 深度解析 ========== */
+    .anime-article {
+      background: white;
+      border-radius: var(--anime-radius);
+      padding: 32px;
+      box-shadow: var(--anime-shadow);
+      margin-bottom: 16px;
+    }
+
+    .anime-article h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .anime-article p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #2d3436;
+    }
+
+    .anime-article h3 {
+      font-size: 1.3rem;
+      margin: 24px 0 12px;
+      font-weight: 700;
+    }
+
+    /* ========== FAQ 手风琴 ========== */
+    .anime-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .anime-faq-item {
+      background: white;
+      border-radius: var(--anime-radius-sm);
+      box-shadow: var(--anime-shadow);
+      overflow: hidden;
+    }
+
+    .anime-faq-q {
+      padding: 18px 24px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: white;
+      transition: background 0.2s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .anime-faq-q:hover {
+      background: #fbfbfe;
+    }
+
+    .anime-faq-q::after {
+      content: "+";
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--anime-primary);
+      transition: transform 0.2s;
+    }
+
+    .anime-faq-item.open .anime-faq-q::after {
+      content: "−";
+    }
+
+    .anime-faq-a {
+      padding: 0 24px 20px;
+      display: none;
+      color: var(--anime-text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .anime-faq-item.open .anime-faq-a {
+      display: block;
+    }
+
+    /* ========== 评论 ========== */
+    .anime-comments {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .anime-comment {
+      background: white;
+      padding: 18px 22px;
+      border-radius: var(--anime-radius-sm);
+      box-shadow: var(--anime-shadow);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .anime-comment-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a29bfe, #fd79a8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .anime-comment-body {
+      flex: 1;
+    }
+
+    .anime-comment-header {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .anime-comment-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .anime-comment-date {
+      font-size: 0.75rem;
+      color: #b2bec3;
+    }
+
+    .anime-comment-text {
+      font-size: 0.92rem;
+      color: #2d3436;
+      line-height: 1.5;
+    }
+
+    /* ========== 资讯卡片 ========== */
+    .anime-news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .anime-news-card {
+      padding: 20px;
+      background: white;
+      border-radius: var(--anime-radius-sm);
+      box-shadow: var(--anime-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .anime-news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--anime-shadow-hover);
+    }
+
+    .anime-news-date {
+      font-size: 0.75rem;
+      color: #b2bec3;
+    }
+
+    .anime-news-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .anime-news-desc {
+      font-size: 0.88rem;
+      color: var(--anime-text-light);
+    }
+
+    /* ========== 页脚 ========== */
+    .anime-footer {
+      border-top: 1px solid var(--anime-border);
+      margin-top: 64px;
+      padding: 40px 0 32px;
+      color: var(--anime-text-light);
+      font-size: 0.85rem;
+    }
+
+    .anime-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .anime-footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .anime-footer-links a:hover {
+      color: var(--anime-primary);
+    }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 768px) {
+      .anime-banner {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      .anime-banner-content h1 {
+        font-size: 2rem;
+      }
+
+      .anime-banner-visual {
+        display: none;
+      }
+
+      .anime-section-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .anime-article {
+        padding: 24px 20px;
+      }
+
+      .anime-nav-links {
+        gap: 12px;
+        font-size: 0.85rem;
+      }
+
+      .anime-search-box {
+        padding-left: 16px;
+      }
+
+      .anime-search-box button {
+        padding: 8px 18px;
+      }
+
+      .anime-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .anime-news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .anime-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .anime-banner-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .anime-cat-btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+      }
+
+      .anime-comment {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+  <div class="anime-container">
+    <!-- 导航 -->
+    <nav class="anime-nav">
+      <div class="anime-logo">
+        <span class="anime-logo-icon">漫</span>
+        <span>免费动漫官网</span>
+      </div>
+      <div class="anime-nav-links">
+        <a href="/#hot-anime">热门推荐</a>
+        <a href="/#latest-update">最新更新</a>
+        <a href="/#deep-analysis">深度解析</a>
+        <a href="/#faq-section">常见问题</a>
+        <a href="/#user-comments">用户评论</a>
+        <a href="/#anime-news">动漫资讯</a>
+      </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="anime-banner" id="anime-home">
+      <div class="anime-banner-content">
+        <h1>免费动漫官网 · <span>在线追番</span> 新番导视</h1>
+        <p class="anime-banner-desc">聚合2026年热门新番、经典番剧与国创精品，提供分类浏览、更新追踪和深度解析。无论你是季度追番党还是补番爱好者，这里都能找到属于你的动漫清单。</p>
+        <div class="anime-search-box">
+          <input type="text" placeholder="搜索动漫名称、类型或声优...">
+          <button>搜索</button>
+        </div>
+        <div class="anime-banner-actions">
+          <a href="/#hot-anime" class="anime-pill">🔥 热门推荐</a>
+          <a href="/#latest-update" class="anime-pill">🆕 今日更新</a>
+          <a href="/#cats-section" class="anime-pill">📂 分类索引</a>
+          <a href="/#deep-analysis" class="anime-pill">📖 深度解析</a>
+          <a href="/#faq-section" class="anime-pill">❓ 常见问题</a>
+          <a href="/#user-comments" class="anime-pill">💬 用户评论</a>
+          <a href="/#anime-news" class="anime-pill">📰 资讯速递</a>
+        </div>
+      </div>
+      <div class="anime-banner-visual">
+        <div class="anime-cover-collage">番</div>
+      </div>
+    </section>
+
+    <!-- 内容简介 -->
+    <section class="anime-section" id="intro-section">
+      <div class="anime-article">
+        <h2>关于免费动漫官网 · 你的追番导航站</h2>
+        <p>免费动漫官网是一个面向动漫爱好者的一站式内容导航与推荐平台。我们不做资源存储，而是通过编辑精选、分类索引和用户口碑，帮你快速找到当下值得看的动漫作品。无论你喜欢热血、恋爱、异世界还是治愈日常，都可以在这里浏览专题、查看更新动态和深度解析。</p>
+        <p>页面整合了新番导视、热门推荐、更新列表、分类入口、深度长文、FAQ和用户评论等模块。你可以通过搜索框直接查找作品，也可以按分类逐层筛选。每个推荐卡片都附有类型标签和看点简介，方便你在碎片时间里快速决策。如果你是刚入坑的新人，可以从FAQ和分类说明开始；如果你是资深追番党，更新列表和深度解析会更适合你。</p>
+        <p>为什么值得收藏？因为这里的更新信息按时间整理，分类入口清晰，深度解析提供剧情和制作层面的参考。我们还会持续收录2026年新番和经典旧番，让页面内容不断丰富。免费动漫官网的核心价值是用编辑视角降低选择成本，让追番这件事变得更简单、更有趣。</p>
+      </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section class="anime-section" id="hot-anime">
+      <div class="anime-section-header">
+        <h2>🔥 热门动漫推荐</h2>
+        <a href="/#latest-update" class="anime-section-link">查看全部 →</a>
+      </div>
+      <div class="anime-grid">
+        <div class="anime-card anime-item-card">
+          <div class="anime-cover">咒</div>
+          <h3>咒术回战 第三季</h3>
+          <div class="anime-tags">
+            <span class="anime-tag hot">热血</span>
+            <span class="anime-tag">战斗</span>
+            <span class="anime-tag">漫改</span>
+          </div>
+          <p class="anime-item-desc">死灭回游篇高潮迭起，虎杖与伏黑的全新战斗，作画依旧炸裂，每周更新必追。</p>
+          <div class="anime-meta"><span>⭐ 9.4</span><span>更新至第8集</span></div>
+        </div>
+        <div class="anime-card anime-item-card">
+          <div class="anime-cover">葬</div>
+          <h3>葬送的芙莉莲 第二季</h3>
+          <div class="anime-tags">
+            <span class="anime-tag hot">治愈</span>
+            <span class="anime-tag">奇幻</span>
+            <span class="anime-tag">冒险</span>
+          </div>
+          <p class="anime-item-desc">魔法使芙莉莲的旅途仍在继续，细腻的情感刻画与悠远的世界观，适合静心观看。</p>
+          <div class="anime-meta"><span>⭐ 9.6</span><span>更新至第12集</span></div>
+        </div>
+        <div class="anime-card anime-item-card">
+          <div class="anime-cover">药</div>
+          <h3>药屋少女的呢喃</h3>
+          <div class="anime-tags">
+            <span class="anime-tag">推理</span>
+            <span class="anime-tag">古风</span>
+            <span class="anime-tag hot">高甜</span>
+          </div>
+          <p class="anime-item-desc">猫猫的宫廷解谜日常，融合药理与悬疑，节奏舒适，角色魅力十足。</p>
+          <div class="anime-meta"><span>⭐ 9.2</span><span>全24集</span></div>
+        </div>
+        <div class="anime-card anime-item-card">
+          <div class="anime-cover">我</div>
+          <h3>我推的孩子 第二季</h3>
+          <div class="anime-tags">
+            <span class="anime-tag">悬疑</span>
+            <span class="anime-tag">偶像</span>
+            <span class="anime-tag hot">话题</span>
+          </div>
+          <p class="anime-item-desc">舞台剧篇展开，阿库亚的复仇线逐步推进，动画工房制作稳定，值得一看。</p>
+          <div class="anime-meta"><span>⭐ 8.9</span><span>更新至第10集</span></div>
+        </div>
+        <div class="anime-card anime-item-card">
+          <div class="anime-cover">间</div>
+          <h3>间谍过家家 第三季</h3>
+          <div class="anime-tags">
+            <span class="anime-tag">喜剧</span>
+            <span class="anime-tag">家庭</span>
+            <span class="anime-tag hot">合家欢</span>
+          </div>
+          <p class="anime-item-desc">阿尼亚的校园生活与黄昏的任务交织，轻松搞笑中带着温情，下饭首选。</p>
+          <div class="anime-meta"><span>⭐ 9.0</span><span>更新至第5集</span></div>
+        </div>
+        <div class="anime-card anime-item-card">
+          <div class="anime-cover">迷</div>
+          <h3>迷宫饭</h3>
+          <div class="anime-tags">
+            <span class="anime-tag">奇幻</span>
+            <span class="anime-tag">美食</span>
+            <span class="anime-tag hot">脑洞</span>
+          </div>
+          <p class="anime-item-desc">在地下城烹饪魔物，设定有趣，作画精良，每一集都有新食材和笑点。</p>
+          <div class="anime-meta"><span>⭐ 9.1</span><span>全24集</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section class="anime-section" id="latest-update">
+      <div class="anime-section-header">
+        <h2>🆕 最新更新与追更动态</h2>
+        <span style="font-size:0.85rem;color:#b2bec3;">2026年11月7日 更新</span>
+      </div>
+      <div class="anime-update-list">
+        <div class="anime-update-item">
+          <div class="update-title">咒术回战 第三季 <span class="anime-tag hot">新</span></div>
+          <div class="update-time">今天 10:00</div>
+          <div class="update-note">第9集「钝刀」已上线</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">葬送的芙莉莲 第二季</div>
+          <div class="update-time">今天 09:30</div>
+          <div class="update-note">第13集「旅行的终点」更新</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">我推的孩子 第二季</div>
+          <div class="update-time">昨天 22:00</div>
+          <div class="update-note">第11集「舞台的帷幕」上线</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">间谍过家家 第三季</div>
+          <div class="update-time">昨天 20:00</div>
+          <div class="update-note">第6集「秘密任务」已更新</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">迷宫饭</div>
+          <div class="update-time">11月5日</div>
+          <div class="update-note">番外篇「炎龙料理」发布</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">药屋少女的呢喃</div>
+          <div class="update-time">11月4日</div>
+          <div class="update-note">全24集已完结，可补番</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">鬼灭之刃 柱训练篇</div>
+          <div class="update-time">11月3日</div>
+          <div class="update-note">新PV公开，2027年播出</div>
+        </div>
+        <div class="anime-update-item">
+          <div class="update-title">蓝色监狱 第二季</div>
+          <div class="update-time">11月2日</div>
+          <div class="update-note">第7集「觉醒」已更新</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="anime-section" id="cats-section">
+      <div class="anime-section-header">
+        <h2>📂 动漫分类入口</h2>
+        <a href="/#hot-anime" class="anime-section-link">更多分类 →</a>
+      </div>
+      <div class="anime-cats">
+        <a href="/#hot-anime" class="anime-cat-btn">🔥 热血战斗</a>
+        <a href="/#hot-anime" class="anime-cat-btn">💕 恋爱甜宠</a>
+        <a href="/#hot-anime" class="anime-cat-btn">🌍 异世界</a>
+        <a href="/#hot-anime" class="anime-cat-btn">🧠 悬疑推理</a>
+        <a href="/#hot-anime" class="anime-cat-btn">🌸 治愈日常</a>
+        <a href="/#hot-anime" class="anime-cat-btn">😂 搞笑喜剧</a>
+        <a href="/#hot-anime" class="anime-cat-btn">⚔️ 战斗冒险</a>
+        <a href="/#hot-anime" class="anime-cat-btn">🎵 音乐偶像</a>
+      </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section class="anime-section" id="deep-analysis">
+      <div class="anime-article">
+        <h2>深度解析 · 免费动漫官网的选番逻辑与内容价值</h2>
+        <p>对于很多动漫爱好者来说，打开一个网站最想知道的是“看什么”和“为什么值得看”。免费动漫官网的深度解析模块正是为此设计。我们不会只罗列片单，而是从类型特点、制作阵容、叙事节奏和受众匹配度几个维度来拆解作品。比如2026年热门的《咒术回战 第三季》，它的核心吸引力在于高密度战斗作画和角色成长的紧迫感；而《葬送的芙莉莲 第二季》则用缓慢的节奏和细节刻画来打动观众，更适合喜欢沉浸式体验的群体。</p>
+        <p>在人物分析方面，我们关注角色弧光是否完整、动机是否合理。以《我推的孩子 第二季》为例，阿库亚的复仇线在舞台剧篇中有了更复杂的心理层次，动画通过光影和台词设计强化了悬疑感。这类内容在搜索“免费动漫官网”时，用户往往希望获得不止于“好不好看”的解读，而是能帮助自己判断是否契合口味。因此我们的解析会结合原作背景、动画改编取舍和社区反馈，提供相对全面的视角。</p>
+        <p>在节奏与消费体验上，不同番剧的更新频率和单集信息量差异很大。例如《间谍过家家 第三季》每集独立成篇，适合碎片时间观看；而《迷宫饭》虽然也是单元剧，但食材设定和地下城生态需要连续观看才能体会乐趣。免费动漫官网在更新列表和卡片中标注了更新状态和集数，帮助用户规划追番时间。同时，我们也会在FAQ中回答“哪部适合下饭”“哪部需要静心看”这类实际问题。</p>
+        <p>同类内容比较也是深度解析的重要部分。例如异世界题材在2026年依然高产，但《无职转生》侧重成长与家庭，《Re:从零开始的异世界生活》强调悬疑与轮回，而《关于我转生变成史莱姆这档事》更偏向种田建国。通过对比，用户可以按自己的偏好筛选。免费动漫官网的编辑团队会持续追踪新番动态，并邀请资深用户参与评论，让内容更贴近真实观感。</p>
+        <p>最后，如果你搜索“免费动漫官网”，可能想找的是资源导航或者在线观看入口。需要说明的是，本站不提供片源，而是作为内容推荐与信息聚合平台。我们通过整理官方资讯、制作背景和社区讨论，帮助你更高效地选择作品，并引导你前往正规平台观看。这种轻量化的导航模式，既节省时间，又能避免信息过载。</p>
+      </div>
+    </section>
+
+    <!-- 体验指南 -->
+    <section class="anime-section" id="guide-section">
+      <div class="anime-article">
+        <h2>📱 体验指南 · 如何高效使用免费动漫官网</h2>
+        <p>页面顶部提供了搜索框和快捷按钮，你可以直接输入动漫名称或类型关键词。如果暂时没有明确目标，点击“热门推荐”或“最新更新”能快速获得编辑精选和近期动态。分类入口按题材划分，适合按喜好浏览。每个推荐卡片都带有类型标签、评分和更新状态，方便你判断是否加入追番列表。</p>
+        <p>移动端访问时，导航栏会紧凑排列，卡片自动变为单列或双列，阅读体验良好。FAQ模块采用手风琴设计，点击问题即可展开答案，不会占用过多屏幕空间。用户评论和资讯卡片在手机端会纵向排列，方便滑动浏览。建议收藏本页，以便随时查看更新和深度解析。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 手风琴 -->
+    <section class="anime-section" id="faq-section">
+      <div class="anime-section-header">
+        <h2>❓ 常见问题</h2>
+        <a href="/#user-comments" class="anime-section-link">查看更多讨论 →</a>
+      </div>
+      <div class="anime-faq-list">
+        <div class="anime-faq-item">
+          <div class="anime-faq-q">免费动漫官网提供在线观看吗？</div>
+          <div class="anime-faq-a">本站是内容导航与推荐平台，不直接提供视频播放或资源下载。我们整理动漫资讯、分类索引、深度解析和用户评论，帮助你发现感兴趣的作品，并引导你前往正规版权平台观看。这样既符合版权要求，也能让你获得更稳定的观看体验。</div>
+        </div>
+        <div class="anime-faq-item">
+          <div class="anime-faq-q">2026年11月有哪些新番值得追？</div>
+          <div class="anime-faq-a">根据目前更新动态，《咒术回战 第三季》《葬送的芙莉莲 第二季》《我推的孩子 第二季》和《间谍过家家 第三季》讨论度较高。如果你喜欢战斗和悬疑，可以优先考虑前两部；如果偏好轻松治愈，后者更合适。此外《迷宫饭》作为完结番也值得补看，脑洞设定和美食元素很独特。</div>
+        </div>
+        <div class="anime-faq-item">
+          <div class="anime-faq-q">如何按类型快速找到想看的动漫？</div>
+          <div class="anime-faq-a">页面中部的分类入口提供了热血、恋爱、异世界、悬疑、治愈、搞笑等常见标签。点击任意标签会定位到热门推荐区域，那里有对应类型的作品卡片。你也可以使用搜索框输入“热血”“恋爱”等关键词，页面会展示相关标签的推荐内容。分类和搜索结合使用效率更高。</div>
+        </div>
+        <div class="anime-faq-item">
+          <div class="anime-faq-q">免费动漫官网的深度解析包括哪些内容？</div>
+          <div class="anime-faq-a">深度解析主要从类型特点、制作阵容、叙事节奏、角色弧光和同类比较五个角度展开。以《葬送的芙莉莲》为例，会分析其缓慢叙事如何服务于情感表达，以及和传统异世界冒险番的差异。这些内容旨在帮助用户判断作品是否合自己口味，而不是简单复述剧情。</div>
+        </div>
+        <div class="anime-faq-item">
+          <div class="anime-faq-q">为什么有些动漫显示“更新至第几集”而不是全话？</div>
+          <div class="anime-faq-a">因为日本TV动画通常按周更新，本站会跟随官方进度标注当前集数。对于已完结的作品，会标注“全XX集”。如果你看到“更新至第8集”，说明该作品仍在连载，可以关注更新列表或收藏页面以便收到后续提醒。部分作品可能因平台差异略有延迟，我们会尽量同步官方信息。</div>
+        </div>
+        <div class="anime-faq-item">
+          <div class="anime-faq-q">用户评论和推荐卡片中的评分真实吗？</div>
+          <div class="anime-faq-a">评分是编辑根据社区讨论热度、制作水准和用户反馈综合给出的参考值，并非严格意义的评分网站数据。评论来自模拟用户或编辑整理的真实观感，目的是提供多元视角。我们鼓励用户发表自己的看法，也欢迎通过评论模块分享追番体验，但请注意保持友好讨论氛围。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="anime-section" id="user-comments">
+      <div class="anime-section-header">
+        <h2>💬 用户评论 · 大家都在聊</h2>
+        <span style="font-size:0.85rem;color:#b2bec3;">近30天热门讨论</span>
+      </div>
+      <div class="anime-comments">
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">追</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">追番小能手</span><span class="anime-comment-date">2026-11-06</span></div>
+            <div class="anime-comment-text">咒术第三季打戏真的顶，每集都在等作画回。不过剧情节奏有点赶，没看过漫画的可能要反应一下。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">芙</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">芙莉莲的魔法书</span><span class="anime-comment-date">2026-11-05</span></div>
+            <div class="anime-comment-text">葬送的芙莉莲第二季还是那么稳，音乐一响就想哭。适合晚上一个人安静看，治愈系天花板。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">阿</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">阿尼亚的瓜</span><span class="anime-comment-date">2026-11-04</span></div>
+            <div class="anime-comment-text">间谍过家家第三季还是熟悉的味道，下饭神器。不过感觉笑点没前两季密集了，希望后面有大招。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">推</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">我推的舞台剧</span><span class="anime-comment-date">2026-11-03</span></div>
+            <div class="anime-comment-text">我推第二季舞台剧篇改编得不错，阿库亚的心理戏很到位。但是动画工房有些静止帧有点多，希望后面发力。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">迷</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">迷宫饭真香</span><span class="anime-comment-date">2026-11-02</span></div>
+            <div class="anime-comment-text">迷宫饭补完了，没想到做饭番也能这么热血。玛露西尔太可爱了，期待第二季。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">药</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">猫猫观察员</span><span class="anime-comment-date">2026-11-01</span></div>
+            <div class="anime-comment-text">药屋少女完结撒花，猫猫和壬氏的感情线终于有进展了，虽然还是暧昧但很满足。推理部分稍微弱了点，但整体很舒服。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">新</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">新人入坑中</span><span class="anime-comment-date">2026-10-30</span></div>
+            <div class="anime-comment-text">刚接触动漫，这个网站的FAQ很有用，分类也清楚。希望能多推荐一些适合新人的作品。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">吐</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">吐槽役</span><span class="anime-comment-date">2026-10-29</span></div>
+            <div class="anime-comment-text">蓝色监狱第二季画风有点崩，但比赛还是燃。希望后期修正一下。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">治</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">治愈系收藏家</span><span class="anime-comment-date">2026-10-27</span></div>
+            <div class="anime-comment-text">这个页面整理得挺舒服的，更新列表一眼就能看到今天有什么。希望多加点国创推荐。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">数</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">数据党</span><span class="anime-comment-date">2026-10-25</span></div>
+            <div class="anime-comment-text">评分参考价值还行，不过有些作品偏高了。建议增加用户打分功能，这样更客观。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">声</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">声优控</span><span class="anime-comment-date">2026-10-23</span></div>
+            <div class="anime-comment-text">希望网站能加声优标签，有时候就是冲着某个声优去看的。</div>
+          </div>
+        </div>
+        <div class="anime-comment">
+          <div class="anime-comment-avatar">周</div>
+          <div class="anime-comment-body">
+            <div class="anime-comment-header"><span class="anime-comment-name">周末补番党</span><span class="anime-comment-date">2026-10-20</span></div>
+            <div class="anime-comment-text">分类入口很方便，周末按分类找了恋爱番，一口气看了好几部。希望增加“完结”筛选。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="anime-section" id="anime-news">
+      <div class="anime-section-header">
+        <h2>📰 动漫资讯速递</h2>
+        <a href="/#hot-anime" class="anime-section-link">更多资讯 →</a>
+      </div>
+      <div class="anime-news-grid">
+        <div class="anime-news-card">
+          <div class="anime-news-date">2026-11-07</div>
+          <div class="anime-news-title">《咒术回战》第三季第9集作画监督公开，战斗场景引热议</div>
+          <p class="anime-news-desc">本集由多位原画师参与，死灭回游篇的规则系战斗成为讨论焦点。</p>
+        </div>
+        <div class="anime-news-card">
+          <div class="anime-news-date">2026-11-06</div>
+          <div class="anime-news-title">《葬送的芙莉莲》第二季原声带即将发售，收录新曲目</div>
+          <p class="anime-news-desc">Evan Call 继续操刀，包含未播出的配乐片段，粉丝可以期待。</p>
+        </div>
+        <div class="anime-news-card">
+          <div class="anime-news-date">2026-11-05</div>
+          <div class="anime-news-title">《我推的孩子》舞台剧篇幕后花絮公开，声优谈角色理解</div>
+          <p class="anime-news-desc">主演声优分享了对阿库亚和露比复杂关系的演绎心得。</p>
+        </div>
+        <div class="anime-news-card">
+          <div class="anime-news-date">2026-11-04</div>
+          <div class="anime-news-title">《迷宫饭》获2026年最佳美食题材动画提名</div>
+          <p class="anime-news-desc">独特的魔物料理设定和稳定的改编质量获得评委认可。</p>
+        </div>
+        <div class="anime-news-card">
+          <div class="anime-news-date">2026-11-03</div>
+          <div class="anime-news-title">《间谍过家家》第三季新角色登场，阿尼亚校园生活升级</div>
+          <p class="anime-news-desc">新角色加入伊甸学园，剧情将围绕友情与秘密任务展开。</p>
+        </div>
+        <div class="anime-news-card">
+          <div class="anime-news-date">2026-11-02</div>
+          <div class="anime-news-title">2027年新番前瞻：多部续作与原创动画公布</div>
+          <p class="anime-news-desc">包括《鬼灭之刃》新篇章、《电锯人》剧场版等，免费动漫官网将持续关注。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="anime-footer">
+      <div class="anime-footer-inner">
+        <div>
+          <div style="font-weight:700;color:var(--anime-primary);margin-bottom:8px;">免费动漫官网</div>
+          <p>© 2026 免费动漫官网 · 内容推荐与导航平台</p>
+          <p style="font-size:0.75rem;margin-top:6px;">本站不提供视频资源，仅做信息聚合与推荐。所有动漫版权归原版权方所有。</p>
+        </div>
+        <div class="anime-footer-links">
+          <a href="/#hot-anime">热门推荐</a>
+          <a href="/#latest-update">最新更新</a>
+          <a href="/#deep-analysis">深度解析</a>
+          <a href="/#faq-section">常见问题</a>
+          <a href="/#user-comments">用户评论</a>
+          <a href="/#anime-news">动漫资讯</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 手风琴交互脚本 -->
+  <script>
+    (function() {
+      const faqItems = document.querySelectorAll('.anime-faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.anime-faq-q');
+        question.addEventListener('click', function() {
+          item.classList.toggle('open');
+        });
+      });
+    })();
+  </script>
+</body>
+          </html>
