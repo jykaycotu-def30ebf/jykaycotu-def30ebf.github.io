@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>飘花电影网-飘花电影网在线影视资源_高清电影电视剧免费观看推荐</title>
+<meta name="description" content="飘花电影网是一个围绕高清影视资源推荐与在线观看体验的内容专题页，整理电影、电视剧、动漫、综艺、短剧等热门内容，提供分类导航、深度解析、最新更新、常见问题与用户评论，帮助你快速找到值得看的影片与追剧方向。">
+<meta name="keywords" content="飘花电影网,飘花电影网在线影视,高清电影推荐,电视剧在线观看,影视资源导航">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M16 20h32v6H16zm0 11h20v6H16zm0 11h32v6H16z' fill='%2338bdf8'/%3E%3Ccircle cx='48' cy='34' r='7' fill='%23f472b6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ph-bg:#0b1220;
+  --ph-bg2:#111c30;
+  --ph-card:#152238;
+  --ph-card2:#1b2c47;
+  --ph-line:#26385a;
+  --ph-text:#e8eefb;
+  --ph-sub:#9db0d0;
+  --ph-cyan:#38bdf8;
+  --ph-pink:#f472b6;
+  --ph-amber:#fbbf24;
+  --ph-radius:16px;
+  --ph-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;
+  background:radial-gradient(1200px 600px at 15% -10%,#1a2b4a 0%,transparent 60%),
+             radial-gradient(900px 500px at 90% 0%,#2a1b3d 0%,transparent 55%),
+             var(--ph-bg);
+  color:var(--ph-text);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.ph-wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+.ph-h2{font-size:24px;margin:0 0 6px;letter-spacing:.5px}
+.ph-h2 span{color:var(--ph-cyan)}
+.ph-sub{color:var(--ph-sub);font-size:14px;margin:0 0 20px}
+.ph-section{padding:46px 0;border-bottom:1px solid rgba(38,56,90,.55)}
+.ph-section:last-of-type{border-bottom:none}
+.ph-btn{
+  display:inline-block;padding:9px 18px;border-radius:999px;
+  background:linear-gradient(135deg,var(--ph-cyan),#6366f1);
+  color:#06101f;font-weight:700;font-size:14px;border:none;cursor:pointer;
+  transition:.25s;
+}
+.ph-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(56,189,248,.35)}
+.ph-btn.ghost{background:transparent;border:1px solid var(--ph-line);color:var(--ph-text);font-weight:500}
+.ph-btn.ghost:hover{border-color:var(--ph-cyan);box-shadow:none}
+.ph-tag{
+  display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;
+  background:rgba(56,189,248,.12);color:#7dd3fc;border:1px solid rgba(56,189,248,.25);
+  margin:0 6px 6px 0;
+}
+.ph-tag.pk{background:rgba(244,114,182,.12);color:#f9a8d4;border-color:rgba(244,114,182,.25)}
+.ph-tag.am{background:rgba(251,191,36,.12);color:#fcd34d;border-color:rgba(251,191,36,.25)}
+
+/* NAV */
+.ph-nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,18,32,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--ph-line);
+}
+.ph-nav-in{display:flex;align-items:center;gap:22px;height:64px}
+.ph-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.5px}
+.ph-logo-mark{
+  width:32px;height:32px;border-radius:9px;
+  background:linear-gradient(135deg,var(--ph-cyan),var(--ph-pink));
+  display:grid;place-items:center;color:#06101f;font-size:15px;font-weight:900;
+}
+.ph-logo em{font-style:normal;color:var(--ph-cyan)}
+.ph-nav-links{display:flex;gap:18px;font-size:14px;color:var(--ph-sub);flex:1;overflow:hidden}
+.ph-nav-links a{white-space:nowrap;transition:.2s}
+.ph-nav-links a:hover{color:var(--ph-cyan)}
+.ph-nav-cta{display:flex;gap:10px;align-items:center}
+.ph-nav-search{
+  display:flex;align-items:center;gap:8px;
+  border:1px solid var(--ph-line);border-radius:999px;padding:6px 14px;
+  background:rgba(21,34,56,.8);
+}
+.ph-nav-search input{
+  background:transparent;border:none;outline:none;color:var(--ph-text);
+  font-size:13px;width:150px;
+}
+.ph-nav-search input::placeholder{color:#5f7395}
+
+/* BANNER */
+.ph-banner{
+  padding:66px 0 54px;
+  background:
+    radial-gradient(700px 300px at 80% 10%,rgba(244,114,182,.18),transparent 60%),
+    radial-gradient(600px 300px at 10% 80%,rgba(56,189,248,.16),transparent 60%);
+}
+.ph-banner h1{font-size:40px;line-height:1.3;margin:0 0 14px;letter-spacing:.5px}
+.ph-banner h1 em{font-style:normal;color:var(--ph-cyan)}
+.ph-banner p{color:var(--ph-sub);max-width:760px;margin:0 0 8px;font-size:15px}
+.ph-searchbar{
+  margin:26px 0 22px;display:flex;gap:10px;max-width:640px;flex-wrap:wrap;
+}
+.ph-searchbar .box{
+  flex:1;min-width:240px;display:flex;align-items:center;gap:10px;
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:14px;padding:12px 16px;
+}
+.ph-searchbar .box input{
+  flex:1;background:transparent;border:none;outline:none;color:var(--ph-text);font-size:15px;
+}
+.ph-searchbar .box input::placeholder{color:#5f7395}
+.ph-quick{display:flex;flex-wrap:wrap;gap:10px}
+.ph-quick a{
+  padding:8px 16px;border-radius:10px;font-size:14px;
+  background:rgba(21,34,56,.9);border:1px solid var(--ph-line);color:#c7d6f0;transition:.22s;
+}
+.ph-quick a:hover{border-color:var(--ph-cyan);color:var(--ph-cyan);transform:translateY(-2px)}
+
+/* INTRO */
+.ph-intro{
+  display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:stretch;
+}
+.ph-intro-main{
+  background:linear-gradient(160deg,var(--ph-card),var(--ph-bg2));
+  border:1px solid var(--ph-line);border-radius:var(--ph-radius);
+  padding:28px;box-shadow:var(--ph-shadow);
+}
+.ph-intro-main p{color:#c3d2ea;font-size:15px;margin:0 0 14px}
+.ph-intro-main p:last-child{margin-bottom:0}
+.ph-facts{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.ph-fact{
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:12px;
+  padding:16px;text-align:center;
+}
+.ph-fact b{display:block;font-size:22px;color:var(--ph-cyan);line-height:1.2}
+.ph-fact span{font-size:12px;color:var(--ph-sub)}
+
+/* CARD GRID */
+.ph-grid{display:grid;gap:18px}
+.ph-grid.c3{grid-template-columns:repeat(3,1fr)}
+.ph-grid.c4{grid-template-columns:repeat(4,1fr)}
+.ph-card{
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:var(--ph-radius);
+  overflow:hidden;transition:.28s;box-shadow:0 6px 18px rgba(0,0,0,.22);
+  display:flex;flex-direction:column;
+}
+.ph-card:hover{transform:translateY(-5px);border-color:rgba(56,189,248,.5);box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.ph-cover{
+  height:130px;position:relative;
+  background:linear-gradient(135deg,#1e3a5f,#3b2a55);
+  display:flex;align-items:flex-end;padding:12px;
+}
+.ph-cover::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(120px 80px at 80% 20%,rgba(56,189,248,.35),transparent 70%);
+}
+.ph-cover.g2{background:linear-gradient(135deg,#3a1f3f,#1d2b4a)}
+.ph-cover.g3{background:linear-gradient(135deg,#123b3a,#2a2f5c)}
+.ph-cover.g4{background:linear-gradient(135deg,#422a1e,#1f3b4a)}
+.ph-cover.g5{background:linear-gradient(135deg,#2a1f3f,#123a4a)}
+.ph-cover.g6{background:linear-gradient(135deg,#3f1f2f,#1d3a3a)}
+.ph-cover .score{
+  position:relative;z-index:2;font-size:13px;font-weight:800;
+  background:rgba(6,16,31,.75);padding:3px 10px;border-radius:8px;color:var(--ph-amber);
+}
+.ph-card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+.ph-card-body h3{font-size:16px;margin:0 0 8px;line-height:1.4}
+.ph-card-body h3 a:hover{color:var(--ph-cyan)}
+.ph-card-body p{font-size:13px;color:var(--ph-sub);margin:0 0 10px;flex:1}
+.ph-meta{font-size:12px;color:#6f84a8;display:flex;gap:12px;flex-wrap:wrap}
+
+/* UPDATE LIST */
+.ph-update{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+}
+.ph-upd-item{
+  display:flex;gap:14px;align-items:center;
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:12px;
+  padding:13px 16px;transition:.22s;
+}
+.ph-upd-item:hover{border-color:rgba(244,114,182,.5);transform:translateX(4px)}
+.ph-upd-time{
+  font-size:12px;color:var(--ph-cyan);white-space:nowrap;
+  border-right:1px solid var(--ph-line);padding-right:14px;min-width:82px;
+}
+.ph-upd-txt{font-size:14px;color:#cfdcf0}
+.ph-upd-txt b{color:var(--ph-text)}
+
+/* CATEGORY */
+.ph-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ph-cat{
+  background:linear-gradient(150deg,var(--ph-card2),var(--ph-card));
+  border:1px solid var(--ph-line);border-radius:14px;padding:20px 18px;
+  transition:.25s;position:relative;overflow:hidden;
+}
+.ph-cat:hover{transform:translateY(-4px);border-color:var(--ph-cyan)}
+.ph-cat b{display:block;font-size:16px;margin-bottom:6px}
+.ph-cat span{font-size:12px;color:var(--ph-sub)}
+.ph-cat i{
+  position:absolute;right:-10px;bottom:-14px;font-style:normal;
+  font-size:52px;opacity:.08;font-weight:900;
+}
+
+/* ARTICLE */
+.ph-article{
+  background:linear-gradient(170deg,var(--ph-card),var(--ph-bg2));
+  border:1px solid var(--ph-line);border-radius:var(--ph-radius);
+  padding:32px;box-shadow:var(--ph-shadow);
+}
+.ph-article h3{font-size:18px;margin:26px 0 10px;color:#d9e6fb}
+.ph-article h3:first-child{margin-top:0}
+.ph-article p{color:#bfd0e8;font-size:15px;margin:0 0 14px;text-align:justify}
+.ph-article strong{color:var(--ph-cyan);font-weight:600}
+
+/* GUIDE */
+.ph-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ph-guide-item{
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:14px;padding:20px;
+}
+.ph-guide-item b{display:block;color:var(--ph-cyan);font-size:15px;margin-bottom:8px}
+.ph-guide-item p{font-size:13px;color:var(--ph-sub);margin:0}
+
+/* FAQ */
+.ph-faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ph-faq-item{
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:14px;padding:18px 20px;
+}
+.ph-faq-item b{
+  display:block;color:#dbe8fb;font-size:15px;margin-bottom:8px;
+  padding-left:26px;position:relative;
+}
+.ph-faq-item b::before{
+  content:"Q";position:absolute;left:0;top:0;font-size:13px;
+  color:#06101f;background:var(--ph-cyan);width:19px;height:19px;border-radius:6px;
+  display:grid;place-items:center;font-weight:900;
+}
+.ph-faq-item p{font-size:13.5px;color:var(--ph-sub);margin:0;padding-left:26px}
+
+/* COMMENTS */
+.ph-comments{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ph-cmt{
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:12px;padding:14px 16px;
+}
+.ph-cmt-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.ph-avatar{
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  font-size:13px;font-weight:800;color:#06101f;flex:none;
+}
+.ph-cmt-name{font-size:13px;color:#cfdcf0}
+.ph-cmt-date{font-size:11px;color:#5f7395;margin-left:auto}
+.ph-cmt p{font-size:13.5px;color:var(--ph-sub);margin:0}
+
+/* NEWS */
+.ph-news{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ph-news-item{
+  background:var(--ph-card);border:1px solid var(--ph-line);border-radius:14px;padding:18px 20px;
+  transition:.24s;
+}
+.ph-news-item:hover{border-color:rgba(251,191,36,.5);transform:translateY(-3px)}
+.ph-news-item h3{font-size:15px;margin:0 0 8px;line-height:1.5}
+.ph-news-item h3:hover{color:var(--ph-amber)}
+.ph-news-item span{font-size:12px;color:#6f84a8}
+.ph-news-item p{font-size:13px;color:var(--ph-sub);margin:8px 0 0}
+
+/* FOOTER */
+.ph-footer{
+  background:rgba(8,13,24,.9);border-top:1px solid var(--ph-line);
+  padding:40px 0 26px;margin-top:10px;
+}
+.ph-foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+.ph-foot-grid h4{font-size:14px;margin:0 0 12px;color:#dbe8fb}
+.ph-foot-grid p,.ph-foot-grid a{font-size:13px;color:var(--ph-sub);display:block;margin:0 0 8px}
+.ph-foot-grid a:hover{color:var(--ph-cyan)}
+.ph-copy{
+  margin-top:28px;padding-top:18px;border-top:1px solid rgba(38,56,90,.6);
+  font-size:12px;color:#5f7395;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+
+@media (max-width:1000px){
+  .ph-grid.c4{grid-template-columns:repeat(2,1fr)}
+  .ph-grid.c3{grid-template-columns:repeat(2,1fr)}
+  .ph-cats{grid-template-columns:repeat(2,1fr)}
+  .ph-guide{grid-template-columns:1fr 1fr}
+  .ph-foot-grid{grid-template-columns:1fr 1fr}
+  .ph-intro{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .ph-nav-links{display:none}
+  .ph-nav-search{display:none}
+  .ph-banner h1{font-size:28px}
+  .ph-banner{padding:44px 0 36px}
+  .ph-grid.c4,.ph-grid.c3{grid-template-columns:1fr}
+  .ph-update,.ph-faq,.ph-comments,.ph-news{grid-template-columns:1fr}
+  .ph-guide{grid-template-columns:1fr}
+  .ph-article{padding:22px}
+  .ph-section{padding:34px 0}
+  .ph-h2{font-size:20px}
+  .ph-cats{grid-template-columns:1fr 1fr}
+  .ph-foot-grid{grid-template-columns:1fr}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 导航 -->
+<header class="ph-nav">
+  <div class="ph-wrap ph-nav-in">
+    <a class="ph-logo" href="/#ph-home">
+      <span class="ph-logo-mark">飘</span>
+      <span>飘花<em>电影网</em></span>
+    </a>
+    <nav class="ph-nav-links">
+      <a href="/#ph-hot">热门推荐</a>
+      <a href="/#ph-update">最新更新</a>
+      <a href="/#ph-cats">分类导航</a>
+      <a href="/#ph-analysis">深度解析</a>
+      <a href="/#ph-guide">观看指南</a>
+      <a href="/#ph-faq">常见问题</a>
+      <a href="/#ph-comments">用户评论</a>
+      <a href="/#ph-news">影视资讯</a>
+    </nav>
+    <div class="ph-nav-cta">
+      <div class="ph-nav-search">
+        <input type="text" placeholder="搜索影片 / 剧名" aria-label="站内搜索">
+        <span style="color:#5f7395;font-size:13px">⌕</span>
+      </div>
+      <a class="ph-btn" href="/#ph-hot">立即浏览</a>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="ph-banner" id="ph-home">
+  <div class="ph-wrap">
+    <h1>飘花电影网 · 高清影视资源推荐与在线观看导航</h1>
+    <p>飘花电影网聚合电影、电视剧、动漫、综艺与短剧等多类型内容入口，按热度、更新与口碑整理，帮助你在碎片时间里快速锁定下一部要看的作品。</p>
+    <p>从类型标签到深度解析，从追更日历到用户评论，这里更像一个懂观影节奏的内容专题站，而不是单纯的片单堆叠。</p>
+
+    <form class="ph-searchbar" onsubmit="return false;">
+      <div class="box">
+        <span style="color:#5f7395">⌕</span>
+        <input type="text" placeholder="输入片名、演员或类型，例如：悬疑 / 都市 / 高分电影" aria-label="搜索影视内容">
+      </div>
+      <button class="ph-btn" type="submit">搜索内容</button>
+    </form>
+
+    <div class="ph-quick">
+      <a href="/#ph-hot">高分电影</a>
+      <a href="/#ph-hot">热播电视剧</a>
+      <a href="/#ph-update">今日更新</a>
+      <a href="/#ph-cats">动漫专区</a>
+      <a href="/#ph-cats">综艺合集</a>
+      <a href="/#ph-cats">微短剧</a>
+      <a href="/#ph-analysis">观影解析</a>
+      <a href="/#ph-news">影视资讯</a>
+      <a href="/#ph-faq">新手指南</a>
+    </div>
+  </div>
+</section>
+
+<!-- 内容简介 -->
+<section class="ph-section" id="ph-intro">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">关于<span>飘花电影网</span>内容专题</h2>
+    <p class="ph-sub">一个围绕影视内容消费需求整理的信息聚合页，侧重推荐逻辑与观看路径。</p>
+    <div class="ph-intro">
+      <div class="ph-intro-main">
+        <p>飘花电影网所对应的用户需求其实很明确：在信息过载的环境里，快速判断“这部片子值不值得看”“最近有什么值得追”“同类作品还有哪些”。因此这个专题页并不打算只做一张片单，而是把电影、电视剧、动漫、综艺、短剧等不同类型的内容按观看场景重新组织，让不同偏好的观众都能找到自己的入口。</p>
+        <p>页面适合几类人：一是想找高分电影但不想花太多时间筛选的观众；二是追更电视剧、需要知道更新节奏的剧迷；三是喜欢按类型、题材、口碑做对比的深度用户；四是偶尔想看点轻松内容、需要快速进入状态的休闲观众。针对这些需求，页面在推荐卡片之外补充了深度解析、体验指南与常见问题，尽量把“看什么”和“怎么看”都说清楚。</p>
+        <p>从内容组织上看，飘花电影网专题强调的是“可继续浏览”。热门推荐提供第一层筛选，最新更新解决时效性，分类导航承担横向扩展，深度解析负责解释推荐理由，评论与资讯则补足真实感和动态感。收藏这个页面，相当于给自己留了一个随时可以回到的观影决策起点。</p>
+        <p>需要说明的是，本页为内容推荐与信息整理型页面，主要提供影视类型、看点、更新节奏和观看建议等参考信息，帮助读者建立自己的判断标准，而不是简单罗列名称。对于刚接触影视资源站的用户，建议先看分类导航和常见问题，再进入推荐列表，会更省时间。</p>
+      </div>
+      <div class="ph-facts">
+        <div class="ph-fact"><b>12+</b><span>内容分类</span></div>
+        <div class="ph-fact"><b>60+</b><span>推荐条目</span></div>
+        <div class="ph-fact"><b>每日</b><span>更新追踪</span></div>
+        <div class="ph-fact"><b>多端</b><span>阅读适配</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 热门推荐 -->
+<section class="ph-section" id="ph-hot">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">热门<span>推荐内容</span></h2>
+    <p class="ph-sub">按口碑、热度与讨论度综合整理，覆盖电影、剧集、动漫与综艺。</p>
+    <div class="ph-grid c3">
+
+      <article class="ph-card">
+        <div class="ph-cover"><span class="score">9.2</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">雾港回声</a></h3>
+          <p>悬疑犯罪题材，港口小镇连环失踪案牵出旧年真相，节奏偏冷峻，适合喜欢慢热推理的观众。</p>
+          <div><span class="ph-tag">悬疑</span><span class="ph-tag">犯罪</span><span class="ph-tag am">高分</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>热度 98.6万</span><span>已完结</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g2"><span class="score">8.7</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">夜航西行</a></h3>
+          <p>公路片气质，两个陌生人因一场意外同行，沿途风景与对话撑起情绪，适合深夜独自观看。</p>
+          <div><span class="ph-tag">剧情</span><span class="ph-tag">公路</span><span class="ph-tag">治愈</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>热度 76.2万</span><span>电影</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g3"><span class="score">9.0</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">长风渡月</a></h3>
+          <p>古装权谋剧，群像刻画扎实，前六集铺垫略慢，中段反转密集，追更体验很上头。</p>
+          <div><span class="ph-tag">古装</span><span class="ph-tag">权谋</span><span class="ph-tag pk">热播</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>更新至 24 集</span><span>周更</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g4"><span class="score">8.5</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">星球拾荒者</a></h3>
+          <p>科幻动画，废土设定下的冒险故事，作画稳定，世界观展开有耐心，适合世界观党。</p>
+          <div><span class="ph-tag">动漫</span><span class="ph-tag">科幻</span><span class="ph-tag">冒险</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>更新至 9 话</span><span>每周五</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g5"><span class="score">8.9</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">厨房里的哲学家</a></h3>
+          <p>美食纪录片，每集围绕一道家常菜展开人物故事，画面克制，适合下饭和睡前放松。</p>
+          <div><span class="ph-tag">纪录片</span><span class="ph-tag">美食</span><span class="ph-tag am">口碑</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>12 集全</span><span>已完结</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g6"><span class="score">8.3</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">今夜不散场</a></h3>
+          <p>室内情景综艺，嘉宾即兴互动为主，笑点密集但不低俗，适合做饭、通勤时当背景音。</p>
+          <div><span class="ph-tag">综艺</span><span class="ph-tag">喜剧</span><span class="ph-tag">轻松</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>更新至第 7 期</span><span>每周六</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g2"><span class="score">8.8</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">三分钟告白</a></h3>
+          <p>都市微短剧，单集三分钟，节奏快、钩子密，适合碎片时间刷，但后期剧情略赶。</p>
+          <div><span class="ph-tag">短剧</span><span class="ph-tag">都市</span><span class="ph-tag pk">爽感</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>40 集全</span><span>已完结</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g3"><span class="score">9.1</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">深蓝档案</a></h3>
+          <p>刑侦剧，案件单元与主线交织，专业细节考究，适合喜欢硬核推理的观众慢慢追。</p>
+          <div><span class="ph-tag">刑侦</span><span class="ph-tag">单元剧</span><span class="ph-tag am">高分</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>更新至 18 集</span><span>周更</span></div>
+        </div>
+      </article>
+
+      <article class="ph-card">
+        <div class="ph-cover g4"><span class="score">8.4</span></div>
+        <div class="ph-card-body">
+          <h3><a href="/#ph-hot">山海食记</a></h3>
+          <p>国风动画短片集，每集讲一味食材与一段传说，画风统一，适合喜欢东方美学的观众。</p>
+          <div><span class="ph-tag">国漫</span><span class="ph-tag">国风</span><span class="ph-tag">短片</span></div>
+          <div class="ph-meta" style="margin-top:10px"><span>16 话全</span><span>已完结</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 最新更新 -->
+<section class="ph-section" id="ph-update">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">最新<span>更新动态</span></h2>
+    <p class="ph-sub">按时间倒序整理近期上线与追更节点，方便安排观看顺序。</p>
+    <div class="ph-update">
+
+      <div class="ph-upd-item"><span class="ph-upd-time">11-07 20:00</span><span class="ph-upd-txt"><b>长风渡月</b> 第 24 集上线，主线冲突升级</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-07 18:30</span><span class="ph-upd-txt"><b>深蓝档案</b> 更新第 18 集，单元案件收尾</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-07 15:10</span><span class="ph-upd-txt"><b>星球拾荒者</b> 第 9 话上线，世界观补完</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-06 21:00</span><span class="ph-upd-txt"><b>今夜不散场</b> 第 7 期更新，嘉宾即兴环节</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-06 19:20</span><span class="ph-upd-txt"><b>雾港回声</b> 上线 4K 修复版本，画质提升</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-06 12:00</span><span class="ph-upd-txt"><b>三分钟告白</b> 番外篇 3 集上线，补全支线</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-05 22:15</span><span class="ph-upd-txt"><b>夜航西行</b> 新增导演剪辑版，时长增加 18 分钟</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-05 20:40</span><span class="ph-upd-txt"><b>山海食记</b> 特别篇上线，讲述节令食材</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-05 14:00</span><span class="ph-upd-txt"><b>厨房里的哲学家</b> 第二季立项消息公布</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-04 21:30</span><span class="ph-upd-txt"><b>长风渡月</b> 角色关系图谱更新，新增支线人物</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-04 16:20</span><span class="ph-upd-txt"><b>深蓝档案</b> 释出幕后特辑，讲述案件原型</span></div>
+      <div class="ph-upd-item"><span class="ph-upd-time">11-04 10:00</span><span class="ph-upd-txt"><b>飘花电影网</b> 专题页新增短剧分类入口</span></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 分类入口 -->
+<section class="ph-section" id="ph-cats">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">分类<span>导航入口</span></h2>
+    <p class="ph-sub">按内容形态与观看场景划分，点击可直接进入对应专题区域。</p>
+    <div class="ph-cats">
+      <a class="ph-cat" href="/#ph-hot"><b>高分电影</b><span>口碑优先，适合认真观看</span><i>影</i></a>
+      <a class="ph-cat" href="/#ph-hot"><b>热播剧集</b><span>追更节奏与更新提醒</span><i>剧</i></a>
+      <a class="ph-cat" href="/#ph-hot"><b>动漫专区</b><span>新番与完结佳作合集</span><i>漫</i></a>
+      <a class="ph-cat" href="/#ph-hot"><b>综艺娱乐</b><span>轻松解压与下饭选择</span><i>综</i></a>
+      <a class="ph-cat" href="/#ph-hot"><b>微短剧</b><span>单集短、钩子密、节奏快</span><i>短</i></a>
+      <a class="ph-cat" href="/#ph-hot"><b>纪录片</b><span>真实故事与人文自然</span><i>纪</i></a>
+      <a class="ph-cat" href="/#ph-analysis"><b>观影解析</b><span>类型、人物与叙事拆解</span><i>析</i></a>
+      <a class="ph-cat" href="/#ph-guide"><b>观看指南</b><span>顺序建议与避坑提示</span><i>南</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- 深度解析 -->
+<section class="ph-section" id="ph-analysis">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">深度<span>内容解析</span></h2>
+    <p class="ph-sub">从类型特征、叙事节奏与观看体验三个角度，解释飘花电影网专题的推荐逻辑。</p>
+    <div class="ph-article">
+
+      <h3>一、影视内容消费的真正难点是“选择”</h3>
+      <p>很多人打开影视页面时并没有明确目标，只有模糊的情绪需求：今天想轻松一点、想被剧情抓住、想看点真实的、或者只是想找点声音陪着。飘花电影网这类影视资源站的价值，不在于条目数量，而在于能否把模糊需求翻译成具体选择。因此本专题在推荐卡片里同时标注了类型、情绪标签和热度信息，让读者先按状态筛选，再按题材细化。</p>
+      <p>从搜索行为看，围绕飘花电影网的用户通常关注三类问题：有哪些值得看的作品、更新节奏怎么安排、同类题材如何比较。这三类问题分别对应推荐模块、更新模块和深度解析模块，也是本页结构设计的出发点。</p>
+
+      <h3>二、类型标签比片名更容易建立判断</h3>
+      <p>片名往往带有主观命名色彩，而类型标签更接近客观描述。悬疑、犯罪、古装、都市、科幻、治愈这些标签，能帮助读者在几秒内判断是否符合当下心情。本页在热门推荐中为每部作品配置了两到三个标签，其中带颜色的标签代表强推荐属性，例如高分、热播、爽感，读者可以据此快速分层。</p>
+      <p>对于类型混合的作品，例如悬疑加公路、古装加权谋，标签的排列顺序也暗示了内容重心。放在前面的通常是作品的主要卖点，放在后面的则是辅助氛围。这种处理方式比单一归类更贴近实际观看感受。</p>
+
+      <h3>三、节奏感决定追更体验</h3>
+      <p>电视剧和短剧的最大差异不在时长，而在节奏密度。长剧需要铺垫人物关系和世界观，前几集慢热是常态；短剧则要求每集都有钩子，靠高频反转维持注意力。飘花电影网专题在推荐时会把更新状态和节奏特点写清楚，避免读者因为预期错位而弃剧。</p>
+      <p>以古装权谋剧为例，前六集往往承担人物登场和势力铺垫，真正的高密度反转集中在中段。如果读者知道这一点，就更容易熬过开头的慢热期。反过来，微短剧如果后期剧情明显赶工，页面也会在简介中提示，让读者有心理准备。这种“预期管理”是内容推荐页最实用的部分。</p>
+
+      <h3>四、人物与表演是口碑的分水岭</h3>
+      <p>同一类型下，作品口碑差异往往来自人物塑造。刑侦剧如果只靠案件猎奇，角色容易扁平；而把主角的职业困境、团队关系写透，案件才有情绪落点。纪录片则更依赖被拍摄者的真实状态，镜头克制反而更有力量。本页在部分推荐中补充了人物或表演维度的描述，帮助读者判断作品是“设定吸引”还是“人物吸引”。</p>
+      <p>对动漫而言，作画稳定性和世界观展开节奏是核心指标；对综艺而言，嘉宾之间的化学反应比环节设计更重要；对短剧而言，主角的爽感兑现速度直接影响留存。不同垂类的判断标准不同，本页尽量按类型给出对应的观察角度，而不是用一套标准套所有内容。</p>
+
+      <h3>五、适合人群与观看场景</h3>
+      <p>影视内容没有绝对好坏，只有匹配与否。深夜独自观看时，节奏舒缓、情绪细腻的作品更容易进入状态；做饭或通勤时，信息密度低、笑点密集的综艺更合适；周末整块时间则适合一口气看完的剧集或电影。飘花电影网专题在推荐卡片中保留了场景提示，目的就是让读者按场景选内容，而不是按排名盲选。</p>
+      <p>此外，页面也提醒读者关注更新节奏。追更剧集最好提前确认周更时间，避免反复刷新；完结作品适合集中观看，情绪更连贯；短剧则适合碎片时间分段消费。把这些信息前置，能明显降低选择成本。</p>
+
+      <h3>六、同类内容比较与延伸浏览</h3>
+      <p>当读者对某一类型产生兴趣后，最自然的动作是寻找同类作品。本页通过分类导航、相关推荐和资讯模块构建横向路径，让读者从单部作品扩展到整个类型。例如从一部悬疑剧出发，可以继续浏览犯罪题材、单元剧结构或高分之选，逐步建立自己的偏好图谱。</p>
+      <p>这种延伸浏览也是飘花电影网专题希望提供的长期价值：不是一次性给出答案，而是帮助读者形成判断方法。看得越多，越清楚自己喜欢什么节奏、什么人物关系、什么叙事结构，选择效率自然提高。</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- 体验指南 -->
+<section class="ph-section" id="ph-guide">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">观看<span>体验指南</span></h2>
+    <p class="ph-sub">从页面结构到观看节奏，给出几条实用建议。</p>
+    <div class="ph-guide">
+      <div class="ph-guide-item">
+        <b>先分类，再选片</b>
+        <p>不确定看什么时，先进入分类导航，按类型或场景缩小范围，比直接翻推荐列表更高效。</p>
+      </div>
+      <div class="ph-guide-item">
+        <b>关注更新状态</b>
+        <p>追更剧集先看更新节奏，完结作品适合集中观看，短剧适合碎片时间分段消费。</p>
+      </div>
+      <div class="ph-guide-item">
+        <b>善用标签筛选</b>
+        <p>高分、热播、爽感等标签代表不同属性，按当下需求选择，能减少试错成本。</p>
+      </div>
+      <div class="ph-guide-item">
+        <b>移动端阅读友好</b>
+        <p>页面在手机端会自动调整为单列布局，卡片信息完整保留，通勤时浏览也清晰。</p>
+      </div>
+      <div class="ph-guide-item">
+        <b>收藏与回访</b>
+        <p>更新模块按时间整理，适合定期回访查看追更节点，避免错过关键剧情。</p>
+      </div>
+      <div class="ph-guide-item">
+        <b>延伸浏览路径</b>
+        <p>从推荐卡片进入深度解析，再回到分类导航，能形成完整的类型探索路径。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="ph-section" id="ph-faq">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">常见<span>问题解答</span></h2>
+    <p class="ph-sub">围绕内容选择、观看顺序与更新节奏整理的高频问题。</p>
+    <div class="ph-faq">
+
+      <div class="ph-faq-item">
+        <b>飘花电影网专题页主要提供什么内容？</b>
+        <p>本页是影视内容推荐与信息整理型专题，覆盖电影、电视剧、动漫、综艺、短剧等类型，提供类型标签、看点简介、更新动态、深度解析与用户评论，帮助读者快速判断值得观看的作品，而不是单纯罗列名称。</p>
+      </div>
+
+      <div class="ph-faq-item">
+        <b>第一次来应该从哪里开始看？</b>
+        <p>建议先看分类导航，确认自己当下想看的内容形态，再进入热门推荐筛选具体作品。如果时间有限，可以直接看最新更新了解近期动态；如果想系统了解，深度解析模块更适合从头阅读。</p>
+      </div>
+
+      <div class="ph-faq-item">
+        <b>高分标签和热播标签有什么区别？</b>
+        <p>高分标签侧重口碑与完成度，适合认真观看；热播标签侧重讨论度和更新节奏，适合想跟上话题的观众。两者并不冲突，部分作品同时具备高口碑和高热度，可以优先考虑。</p>
+      </div>
+
+      <div class="ph-faq-item">
+        <b>短剧和长剧应该怎么选？</b>
+        <p>短剧单集时长短、钩子密集，适合碎片时间和通勤场景，但后期剧情容易赶工；长剧铺垫更充分，人物关系更完整，适合周末集中观看。可以按可用时间和耐心程度选择。</p>
+      </div>
+
+      <div class="ph-faq-item">
+        <b>更新动态多久整理一次？</b>
+        <p>更新模块按近期时间倒序整理，主要记录上线、更新集数和特别篇等节点。追更剧集建议定期回访查看，完结作品则可以一次性安排观看顺序，减少反复查找。</p>
+      </div>
+
+      <div class="ph-faq-item">
+        <b>同类作品有没有推荐路径？</b>
+        <p>有。可以从推荐卡片进入深度解析，了解类型特征后再回到分类导航横向扩展；也可以查看相关资讯，获取新作立项、特别篇上线等动态，逐步建立自己的偏好图谱。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 用户评论 -->
+<section class="ph-section" id="ph-comments">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">用户<span>评论精选</span></h2>
+    <p class="ph-sub">来自近期浏览与追更用户的真实反馈，包含推荐、讨论与中性评价。</p>
+    <div class="ph-comments">
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#38bdf8">林</span><span class="ph-cmt-name">林间有雾</span><span class="ph-cmt-date">11-06</span></div>
+        <p>雾港回声真的适合熬夜看，节奏慢但信息量足，看到第四集才反应过来前面的细节都是伏笔。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#f472b6">阿</span><span class="ph-cmt-name">阿柚不加冰</span><span class="ph-cmt-date">11-06</span></div>
+        <p>长风渡月前六集确实有点慢，差点弃了，看到第十集之后完全停不下来，权谋线写得比预期扎实。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#fbbf24">小</span><span class="ph-cmt-name">小满在加班</span><span class="ph-cmt-date">11-05</span></div>
+        <p>短剧分类挺实用的，三分钟告白我通勤路上两天刷完，节奏确实快，就是结局有点赶。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#34d399">周</span><span class="ph-cmt-name">周末不早起</span><span class="ph-cmt-date">11-05</span></div>
+        <p>厨房里的哲学家画面很舒服，不煽情但看得下去，适合吃饭的时候放，比很多美食综艺克制。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#818cf8">夜</span><span class="ph-cmt-name">夜航星</span><span class="ph-cmt-date">11-05</span></div>
+        <p>星球拾荒者的世界观展开有耐心，作画也稳定，就是更新太慢了，每周五等得有点煎熬。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#fb7185">陈</span><span class="ph-cmt-name">陈年旧片</span><span class="ph-cmt-date">11-04</span></div>
+        <p>深蓝档案的案件细节做得不错，但个别单元收尾有点仓促，希望主线能稳住。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#22d3ee">青</span><span class="ph-cmt-name">青柠气泡水</span><span class="ph-cmt-date">11-04</span></div>
+        <p>页面分类挺清楚的，我一般先看高分标签再筛类型，比在别的地方瞎翻省时间。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#a78bfa">一</span><span class="ph-cmt-name">一只慢羊</span><span class="ph-cmt-date">11-04</span></div>
+        <p>今夜不散场的即兴环节比正片好笑，嘉宾之间熟不熟真的影响观感。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#fbbf24">白</span><span class="ph-cmt-name">白桃乌龙</span><span class="ph-cmt-date">11-03</span></div>
+        <p>山海食记画风很统一，特别篇也保持了水准，希望后面能出长片。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#38bdf8">老</span><span class="ph-cmt-name">老片重看</span><span class="ph-cmt-date">11-03</span></div>
+        <p>夜航西行的导演剪辑版多出来的十八分钟确实值得，结尾的情绪完整了很多。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#f472b6">不</span><span class="ph-cmt-name">不想熬夜</span><span class="ph-cmt-date">11-02</span></div>
+        <p>建议更新动态标一下具体平台，有时候找半天不知道在哪儿看，其他都不错。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#34d399">南</span><span class="ph-cmt-name">南风知我意</span><span class="ph-cmt-date">11-02</span></div>
+        <p>从悬疑分类一路点下去，发现了好几部没听过的片子，这种延伸浏览挺好用的。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#818cf8">K</span><span class="ph-cmt-name">Kira不追番</span><span class="ph-cmt-date">11-01</span></div>
+        <p>国漫这两年确实进步明显，山海食记这种短片集适合推荐给不看番的朋友。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#fb7185">小</span><span class="ph-cmt-name">小城故事多</span><span class="ph-cmt-date">10-31</span></div>
+        <p>中肯说一句，短剧爽是爽，但看多了容易腻，还是得穿插点慢节奏的作品换换口味。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#22d3ee">追</span><span class="ph-cmt-name">追更不睡觉</span><span class="ph-cmt-date">10-30</span></div>
+        <p>希望长风渡月后面别崩，前面铺的人物线太多，收尾压力不小。</p>
+      </div>
+
+      <div class="ph-cmt">
+        <div class="ph-cmt-top"><span class="ph-avatar" style="background:#a78bfa">闲</span><span class="ph-cmt-name">闲人一枚</span><span class="ph-cmt-date">10-29</span></div>
+        <p>手机上看排版挺舒服的，卡片信息不挤，比那种一屏塞十几个入口的页面好读。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 相关资讯 -->
+<section class="ph-section" id="ph-news">
+  <div class="ph-wrap">
+    <h2 class="ph-h2">影视<span>相关资讯</span></h2>
+    <p class="ph-sub">围绕类型动态、上线消息与推荐看点整理的近期资讯。</p>
+    <div class="ph-news">
+
+      <div class="ph-news-item">
+        <h3>悬疑剧集持续升温，冷峻叙事成为新偏好</h3>
+        <span>2026-11-06</span>
+        <p>近期多部悬疑题材作品讨论度走高，观众更关注逻辑完整度与人物动机，而非单纯反转数量。</p>
+      </div>
+
+      <div class="ph-news-item">
+        <h3>古装权谋剧进入群像竞争阶段</h3>
+        <span>2026-11-05</span>
+        <p>新一批古装剧在人物关系上投入更多篇幅，群像刻画成为口碑分水岭，单主角叙事减少。</p>
+      </div>
+
+      <div class="ph-news-item">
+        <h3>微短剧精品化趋势明显，单集质量提升</h3>
+        <span>2026-11-04</span>
+        <p>短剧在保持节奏优势的同时开始重视收尾质量，番外篇与支线补全成为常见做法。</p>
+      </div>
+
+      <div class="ph-news-item">
+        <h3>纪录片受众扩大，美食与人文题材受关注</h3>
+        <span>2026-11-03</span>
+        <p>节奏克制、画面干净的纪录片在下饭和睡前场景中渗透率提升，第二季立项消息增多。</p>
+      </div>
+
+      <div class="ph-news-item">
+        <h3>国漫短片集尝试统一美学风格</h3>
+        <span>2026-11-02</span>
+        <p>多部国风动画采用短片集形式，通过统一画风串联不同故事，降低新观众进入门槛。</p>
+      </div>
+
+      <div class="ph-news-item">
+        <h3>综艺回归即兴互动，嘉宾化学反应成关键</h3>
+        <span>2026-11-01</span>
+        <p>室内情景类综艺减少复杂环节设计，转向依赖嘉宾默契与临场反应，观众反馈更直接。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="ph-footer">
+  <div class="ph-wrap">
+    <div class="ph-foot-grid">
+      <div>
+        <h4>飘花电影网</h4>
+        <p>影视内容推荐与信息整理专题页，覆盖电影、剧集、动漫、综艺与短剧等类型，提供类型标签、更新动态、深度解析与观看建议。</p>
+      </div>
+      <div>
+        <h4>内容栏目</h4>
+        <a href="/#ph-hot">热门推荐</a>
+        <a href="/#ph-update">最新更新</a>
+        <a href="/#ph-cats">分类导航</a>
+        <a href="/#ph-analysis">深度解析</a>
+      </div>
+      <div>
+        <h4>帮助与反馈</h4>
+        <a href="/#ph-guide">观看指南</a>
+        <a href="/#ph-faq">常见问题</a>
+        <a href="/#ph-comments">用户评论</a>
+        <a href="/#ph-news">影视资讯</a>
+      </div>
+      <div>
+        <h4>友情链接</h4>
+        <a href="/#ph-home">影视专题首页</a>
+        <a href="/#ph-cats">类型索引</a>
+        <a href="/#ph-hot">口碑榜单</a>
+        <a href="/#ph-update">追更日历</a>
+      </div>
+    </div>
+    <div class="ph-copy">
+      <span>© 2026 飘花电影网内容专题 · 本站为影视信息整理与推荐页面，不存储任何视频文件。</span>
+      <span>内容仅供参考，请支持正版影视作品。</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
